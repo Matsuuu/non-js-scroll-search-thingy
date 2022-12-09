@@ -1,0 +1,86 @@
+body {
+  font-family: sans-serif;
+}
+
+section.search-result {
+  padding: 1rem;
+  border: 2px solid #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  padding: 0.5rem 0;
+  margin: 0;
+}
+
+summary {
+  display: block;
+  border: 1px solid #000;
+  width: fit-content;
+  padding: 0.2rem;
+  cursor: pointer;
+  content: "Read More";
+}
+
+details[open] {
+  position: fixed;
+  height: 80vh;
+  width: 60vh;
+  border: 2px solid #000;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  animation: slide-in 200ms;
+}
+
+@keyframes slide-in {
+  from {
+    top: -10rem;
+  }
+  to {
+    top: 0;
+  }
+}
+
+details[open] summary {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 0;
+
+  content: "Close";
+}
+
+details[open] summary::after {
+  font-size: 1rem;
+  content: "Close";
+}
+
+details section {
+  font-size: 3rem;
+  line-height: 10;
+  overflow-y: auto;
+  max-height: 80vh;
+  background: #fff;
+}
+
+details[open]::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  position: fixed;
+}
+
+body:has(details[open]) {
+  overflow: hidden;
+}

@@ -25,6 +25,16 @@ summary {
   content: "Read More";
 }
 
+details[open] summary::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
 details[open] {
   position: fixed;
   height: 80vh;
